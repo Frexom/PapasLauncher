@@ -21,4 +21,4 @@ _papas_completion() {
     #Send
     COMPREPLY=( $(compgen -W "$opts" -- $cur ) )
 }
-complete -F _papas_completion ./papas;
+complete -F _papas_completion papas;

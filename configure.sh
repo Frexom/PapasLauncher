@@ -1,10 +1,12 @@
+#Stopping at forst error
+set -e
+
 echo  -e "Using pol2095's Flash-Player-Projector-64-bit-standalone-install-for-Ubuntu\n\n"
 
 hasFlash=true
 
 #Check if flashplayer-projector is installed
 if ! [ -x "$(command -v flashplayer-projector)" ]; then
-    echo 'does not exists'
     hasFlash=false
 fi
 
@@ -25,7 +27,6 @@ else
 fi
 echo ""
 
-
 #Auto-complete papas command args
 source ./papas-completion.sh
 
@@ -45,8 +46,18 @@ then
     mv flashplayer $HOME/.local/bin/flashplayer-projector
 fi
 
-#Installing papas
+#Installing papas and auto-complete
 cp papas $HOME/.local/bin/papas
+cp papas-completion.sh ~/PapasLauncher/papas-completion.sh
+
+#Check if not sourced yet in .bashrc
+if ! grep -Fxq "source ~/PapasLauncher/papas-completion.sh" ~/.bashrc
+then
+    echo "" >> ~/.bashrc
+    echo "source ~/PapasLauncher/papas-completion.sh" >> ~/.bashrc
+fi
+. ~/PapasLauncher/papas-completion.sh
+. ~/.bashrc
 
 #Summary
 echo -e "Done\n\nCommands added :"
