@@ -1,0 +1,8 @@
+if [ 1 -gt $# ]
+then
+    echo 'Please specify a game (auto-completion is ON).';
+    exit;
+fi
+
+echo "$HOME/PapasLauncher/$1.swf"
+flashplayer-projector $HOME/PapasLauncher/games/$1.swf
