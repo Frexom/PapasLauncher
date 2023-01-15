@@ -10,13 +10,21 @@ _papas_completion() {
     #Current arg word
     cur="${COMP_WORDS[argc]}"
 
-    #For each game in directory
-    Games="$HOME/PapasLauncher/games/*"
-    for file in $HOME/PapasLauncher/games/*
-    do
-        filename=$(basename $file .swf)
-        opts+="$filename "
-    done
+    case $argc in
+        1)
+            opts="run random"
+        ;;
+
+        2)
+            #For each game in directory
+            Games="$HOME/PapasLauncher/games/*"
+            for file in $HOME/PapasLauncher/games/*
+            do
+                filename=$(basename $file .swf)
+                opts+="$filename "
+            done
+        ;;
+esac
 
     #Send
     COMPREPLY=( $(compgen -W "$opts" -- $cur ) )

@@ -1,8 +1,35 @@
-if [ 1 -gt $# ]
-then
+if [ 1 -gt $# ]; then
     echo 'Please specify a game (auto-completion is ON).';
     exit;
 fi
 
-echo "$HOME/PapasLauncher/$1.swf"
-flashplayer-projector $HOME/PapasLauncher/games/$1.swf
+
+
+case $1 in
+
+    run)
+        if [ 2 -gt $# ]; then
+            echo "Please specify a game (auto-completion is ON).";
+            exit;
+        fi
+
+        FILE=$HOME/PapasLauncher/games/$2.swf
+        if test -f "$FILE"; then
+            flashplayer-projector $FILE
+        else
+            echo "papas: run: $2.swf: No such game file";
+        fi
+    ;;
+
+    random)
+        #Selecting a random file from the games directory
+        ls ~/PapasLauncher/games |sort -R |tail -1 |while read file; do
+            flashplayer-projector $HOME/PapasLauncher/games/$file
+        done
+    ;;
+
+    *)
+        echo "papas: Illegal argument : $1";
+        exit;
+    ;;
+esac

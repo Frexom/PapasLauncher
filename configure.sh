@@ -37,7 +37,7 @@ echo "Moving files..."
 mkdir -p $HOME/PapasLauncher/games
 
 #Copies games to directory
-cp -r games/ $HOME/PapasLauncher/
+cp -rn games/ $HOME/PapasLauncher/
 
 
 #Installing flashplayer if needed
