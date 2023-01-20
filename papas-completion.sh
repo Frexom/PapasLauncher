@@ -12,19 +12,22 @@ _papas_completion() {
 
     case $argc in
         1)
-            opts="run random"
+            opts="play random"
         ;;
 
         2)
-            #For each game in directory
-            Games="$HOME/PapasLauncher/games/*"
-            for file in $HOME/PapasLauncher/games/*
-            do
-                filename=$(basename $file .swf)
-                opts+="$filename "
-            done
+            if [[ $3 == "play" ]]; then
+                #For each game in directory
+                Games="$HOME/PapasLauncher/games/*"
+                for file in $HOME/PapasLauncher/games/*
+                do
+                    filename=$(basename $file .swf)
+                    opts+="$filename "
+                done
+            fi
         ;;
-esac
+    esac
+
 
     #Send
     COMPREPLY=( $(compgen -W "$opts" -- $cur ) )

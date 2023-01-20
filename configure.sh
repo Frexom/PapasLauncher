@@ -27,8 +27,6 @@ else
 fi
 echo ""
 
-#Auto-complete papas command args
-source ./papas-completion.sh
 
 
 echo "Moving files..."
@@ -56,6 +54,8 @@ then
     echo "" >> ~/.bashrc
     echo "source ~/PapasLauncher/papas-completion.sh" >> ~/.bashrc
 fi
+
+#Source the file and refresh bashrc
 . ~/PapasLauncher/papas-completion.sh
 . ~/.bashrc
 

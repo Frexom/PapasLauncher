@@ -7,7 +7,7 @@ fi
 
 case $1 in
 
-    run)
+    play)
         if [ 2 -gt $# ]; then
             echo "Please specify a game (auto-completion is ON).";
             exit;
@@ -17,7 +17,7 @@ case $1 in
         if test -f "$FILE"; then
             flashplayer-projector $FILE
         else
-            echo "papas: run: $2.swf: No such game file";
+            echo "papas: play: $2.swf: No such game file";
         fi
     ;;
 
