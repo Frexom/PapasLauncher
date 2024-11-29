@@ -34,7 +34,7 @@ then
     echo 'Command flashplayer-projector not found!'
 
     echo "Downloading..."
-    wget https://ia601802.us.archive.org/23/items/adobe-flash-player-projector/flash_player_sa_linux.x86_64.tar.gz -O flash.tar.gz -q
+    wget https://ia601702.us.archive.org/30/items/flashplayer32_0r0_363_win_sa/flashplayer32_0r0_363_linux_sa.x86_64.tar.gz -O flash.tar.gz -q
     echo -e "Done.\n"
     echo "Extracting..."
     tar -xf flash.tar.gz
